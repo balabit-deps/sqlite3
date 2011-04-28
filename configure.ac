@@ -88,6 +88,7 @@
 # the corresponding code.
 #
 AC_INIT(sqlite, m4_esyscmd([cat VERSION | tr -d '\n']))
+AC_CONFIG_MACRO_DIR([m4])
 
 dnl Make sure the local VERSION file matches this configure script
 sqlite_version_sanity_check=`cat $srcdir/VERSION | tr -d '\n'`
