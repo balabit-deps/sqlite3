@@ -87,11 +87,19 @@ case "$cmd" in
     if echo "$ZBS_DIST" | grep '^linux' >/dev/null 2>&1 && [ -n "$ZBS_ARCH" ] && [ "$ZBS_ARCH" = "i386" ];then
       CONFOPTS=--build=$ZBS_ARCH-unknown-`uname | tr '[A-Z]' '[a-z]'`-gnu
     fi
+    if echo "$ZBS_DIST" | grep '^aix' >/dev/null 2>&1;then
+      CFLAGS="$CFLAGS -DSQLITE_DISABLE_DIRSYNC -DSQLITE_DEBUG=1"
+    fi
     #LDFLAGS="$LDFLAGS -Wl,-O1" \
     # variables ripped from Ubuntu zlib packaging
     #unset CFLAGS LDFLAGS CC
     CFLAGS=`echo $CFLAGS | sed -e 's/-I[^ ]*//g'`
-    export CFLAGS
+
+    # force using -pthread for gcc. Otherwise configure "forgets" to set the
+    # thread related compiler options...
+    CFLAGS="$CFLAGS -pthread"
+    LDFLAGS="$LDFLAGS -pthread"
+    export CFLAGS LDFLAGS
     ./configure --prefix $TARGET --disable-tcl --disable-readline --disable-amalgamation \
                  --enable-shared --enable-static --disable-tcl --enable-threadsafe \
                  --enable-cross-thread-connections $CONFOPTS
