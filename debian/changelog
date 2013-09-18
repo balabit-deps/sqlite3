@@ -1,3 +1,9 @@
+sqlite3 (3.7.6.2-1.syslogng50.1) syslogngdeps50; urgency=low
+
+  * released for syslog-ng-5.0
+
+ -- Laszlo Budai <lbudai@balabit.com>  Wed, 18 Sep 2013 06:18:33 +0200
+
 sqlite3 (3.7.6.2-1.syslogng41.1) syslogngdeps30; urgency=low
 
   * force compiling in threaded mode.
