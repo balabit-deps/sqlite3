@@ -1,3 +1,10 @@
+sqlite3 (3.7.6.2-1.syslogng50.2) syslogngdeps50; urgency=low
+
+  * released for syslog-ng-5.0
+  * build fixes
+
+ -- Laszlo Budai <lbudai@balabit.com>  Wed, 18 Sep 2013 12:35:00 +0200
+
 sqlite3 (3.7.6.2-1.syslogng50.1) syslogngdeps50; urgency=low
 
   * released for syslog-ng-5.0
