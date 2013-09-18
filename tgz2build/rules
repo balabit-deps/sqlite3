@@ -27,7 +27,7 @@ $(STAMPDIR)/stamp-setup:
 
 configure: $(STAMPDIR)/stamp-configure
 $(STAMPDIR)/stamp-configure: $(STAMPDIR)/stamp-setup
-	$(BUILDCMD) configure --prefix=$(ZBS_PREFIX)
+	$(BUILDCMD) configure --prefix=$(ZBS_PREFIX) --shell=$(SHELL)
 	touch $@
 
 build: $(STAMPDIR)/stamp-build

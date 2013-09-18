@@ -5,6 +5,7 @@ set -e
 ZWACONF=./.zwaconf
 
 TARGET=
+CONFIGURE_SHELL=
 
 get_version(){
       head -1 debian/changelog | sed -e 's/.*(\([^)]*\)).*/\1/'
@@ -58,7 +59,7 @@ case "$cmd" in
       $MAKE distclean
     ;;
   configure)
-    OPTIONS=`getopt -l "help,prefix:" 'p:' $*`
+    OPTIONS=`getopt -l "help,shell:,prefix:" 'p:s:' $*`
     if [ $? -ne 0 ]; then
       echo "$0: unknown flags..."
       exit 1
@@ -78,6 +79,13 @@ case "$cmd" in
           ;;
         --prefix=*)
           TARGET=${1##*=}
+          ;;
+        -s|--shell)
+          shift
+          CONFIGURE_SHELL="$1"
+          ;;
+        --shell=*)
+          CONFIGURE_SHELL=${1##*=}
           ;;
       esac
       shift
@@ -100,7 +108,7 @@ case "$cmd" in
     CFLAGS="$CFLAGS -pthread"
     LDFLAGS="$LDFLAGS -pthread"
     export CFLAGS LDFLAGS
-    ./configure --prefix $TARGET --disable-tcl --disable-readline --disable-amalgamation \
+    $CONFIGURE_SHELL ./configure --prefix $TARGET --disable-tcl --disable-readline --disable-amalgamation \
                  --enable-shared --enable-static --disable-tcl --enable-threadsafe \
                  --enable-cross-thread-connections $CONFOPTS
 
