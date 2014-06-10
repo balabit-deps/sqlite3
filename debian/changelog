@@ -1,3 +1,9 @@
+sqlite3 (3.7.6.2-1.syslogng52.1) syslogng52; urgency=low
+
+  * released for syslog-ng-5.2
+
+ -- jviktor <jviktor@devel-57>  Tue, 10 Jun 2014 11:42:02 +0200
+
 sqlite3 (3.7.6.2-1.syslogng50.2) syslogngdeps50; urgency=low
 
   * released for syslog-ng-5.0
