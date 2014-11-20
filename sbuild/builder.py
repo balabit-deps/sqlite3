@@ -5,14 +5,14 @@ class SqliteBuilder(AutotoolsBuilder):
     def bootstrap(self):
         result = super(SqliteBuilder, self).bootstrap() and super(SqliteBuilder, self).configure()
         self.make("sqlite3.h")
-        Utils.run_command("mv '%s/sqlite3.h' '%s/sqlite3.h-bb'"%(self.build_dir, self.build_dir))
+        Utils.run_command("mv 'sqlite3.h' 'sqlite3.h-bb'", directory=self.build_dir);
         self.make("distclean")
         return result
 
     def configure(self, configure_opts = None):
         result = super(SqliteBuilder, self).configure(configure_opts)
-        Utils.run_command("cp '%s/sqlite3.h-bb' '%s/sqlite3.h'"%(self.build_dir, self.build_dir))
-        Utils.run_command("touch '%s/sqlite3.h'"%(self.build_dir))
+        Utils.run_command("cp 'sqlite3.h-bb' 'sqlite3.h'", directory=self.build_dir);
+        Utils.run_command("touch 'sqlite3.h'", directory=self.build_dir)
         return result
         
 
