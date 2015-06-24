@@ -11,7 +11,5 @@ solaris-10/amd64
 solaris-11/sparc64
 linux-glibc2.11/amd64
 hpux-11v2/ia64
-freebsd-8.0/amd64
 freebsd-9.2/i386
-freebsd-8.0/i386
 linux-glibc2.11/i386
