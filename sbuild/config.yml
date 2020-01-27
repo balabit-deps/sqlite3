@@ -21,5 +21,4 @@ platforms:
   - linux-glibc2.11/amd64
   - hpux-11v2/ia64
   - freebsd-9.2/i386
-  - linux-glibc2.11/i386  
-  - ubuntu-bionic/amd64
+  - linux-glibc2.11/i386
