@@ -7,18 +7,5 @@ builder:
   # have not tclsh binary, but normally tclsh is required by creating sqlite3.h
   prepare_dist_hook: "/bin/sh -c 'make sqlite3.h && mv sqlite3.h sqlite3.h-bb'"
 platforms:
-  - solaris-11/amd64
-  - linux-glibc2.3.6/amd64
   - aix-6.1/powerpc
-  - linux-glibc2.3.6/i386
-  - freebsd-9.2/amd64
-  - freebsd-10.1/amd64
-  - freebsd-10.1/i386
-  - solaris-10/sparc
-  - solaris-10/sparc64
-  - solaris-10/amd64
-  - solaris-11/sparc64
   - linux-glibc2.11/amd64
-  - hpux-11v2/ia64
-  - freebsd-9.2/i386
-  - linux-glibc2.11/i386
