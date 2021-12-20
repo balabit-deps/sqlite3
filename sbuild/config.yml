@@ -1,0 +1,13 @@
+name: sqlite3
+builder:
+  name: BalabitBuilder
+  configure_options: >
+    --disable-tcl
+    --disable-readline
+    --disable-amalgamation
+    --enable-shared
+    --disable-static
+    --disable-tcl
+    --enable-threadsafe
+    --enable-cross-thread-connections
+    --enable-debug

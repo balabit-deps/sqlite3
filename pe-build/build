@@ -1,0 +1,25 @@
+source="sqlite3"
+version=3.7.6.2-pe-1
+
+bootstrap() {
+  ./autogen.sh
+}
+
+build() {
+  cd "${build_dir}"
+  "${src_dir}"/configure \
+    --prefix="${prefix}"\
+    --disable-tcl \
+    --disable-readline \
+    --disable-amalgamation \
+    --enable-shared \
+    --enable-static \
+    --disable-tcl \
+    --enable-threadsafe \
+    --enable-cross-thread-connections
+  make
+}
+
+install() {
+  make -C "${build_dir}" DESTDIR="${dest_dir}" install
+}
